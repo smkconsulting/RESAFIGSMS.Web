@@ -1,0 +1,65 @@
+﻿@page
+@model RESAFIGSMS.Web.Pages.SendSMSWithFileModel
+@{
+
+}
+
+<form method="post" enctype="multipart/form-data" asp-page-handler="loadFile">
+	@* <div class="form-horizontal"> *@
+	<div class="form-group">
+		<div class="col-md-10 ">
+			<input type="file" asp-for="SMSMultiples.Upload" class="" accept=".xlsx, .xls" />
+		</div>
+		@*     <div class="col-md-2 ">
+		<input type="submit" value="Charger les numéros"  class="btn btn-primary"/>
+		</div> *@
+	</div>
+	@*   </div> *@
+	<div class="form-group">
+		<label asp-for="SMSMultiples.senderName" class="control-label"></label>
+		<input type="tel" asp-for="SMSMultiples.senderName" class="form-control" disabled value="RESAFIG" />
+		<span asp-validation-for="SMSMultiples.senderName" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="SMSMultiples.message" class="control-label"></label>
+		<textarea asp-for="SMSMultiples.message" style="height:100px" class="form-control"></textarea>
+		<span asp-validation-for="SMSMultiples.message" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<br /><input type="submit" class="btn btn-primary" style="width:150px;" value="Envoyer SMS" />
+		<a asp-page="Index" class="btn btn-secondary" style="width:150px;">Annuler</a>
+	</div>
+</form>
+
+@if (ViewData["Msg"] != null)
+{
+	<script type="text/javascript">
+		window.onload = function () {
+			alert("@ViewData["Msg"]");
+		}
+	</script>
+}
+
+@* <form method="post">
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+	<div class="form-group">
+		<label asp-for="SMSMultiples.listNumbers" class="control-label"></label>
+		<input type="tel" asp-for="SMSMultiples.listNumbers" class="form-control"/>
+		<span asp-validation-for="SMSMultiples.listNumbers" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="SMSMultiples.senderName" class="control-label"></label>
+		<input type="tel" asp-for="SMSMultiples.senderName" class="form-control" disabled value="RESAFIG" />
+		<span asp-validation-for="SMSMultiples.senderName" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="SMSMultiples.message" class="control-label"></label>
+		<textarea asp-for="SMSMultiples.message" style="height:100px" class="form-control"></textarea>
+		<span asp-validation-for="SMSMultiples.message" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<br /><button type="submit" class="btn btn-primary" style="width:150px;">Envoyer SMS</button>
+		<a asp-page="Index" class="btn btn-secondary" style="width:150px;">Annuler</a>
+	</div>
+</form> *@

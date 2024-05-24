@@ -1,0 +1,28 @@
+
+{
+    "region" : "us-east-1",
+    "profile" : "smkconsulting",
+    "configuration" : "Release",
+    "image-tag"     : "resafigsmsweb:latest",
+    "docker-build-working-dir" : "",
+    "cluster"                  : "resafigsms",
+    "launch-type"              : "FARGATE",
+    "launch-subnets"           : "subnet-0d069197bf535b3bf,subnet-0540db487ffc3a658,subnet-0dd2d6d0ce3fe48e7,subnet-036d6e95abd76c70a,subnet-0fd7f9cd85eda8634,subnet-05c3b69fb4a0d2e73",
+    "launch-security-groups"   : "sg-0e80369a834cfde71",
+    "assign-public-ip"         : true,
+    "task-definition-name"     : "RESAFIGSMSWeb",
+    "task-cpu"                 : "256",
+    "task-memory"              : "512",
+    "platform-version"         : "LATEST",
+    "task-definition-task-role" : "arn:aws:iam::891377070277:role/ecsTaskExecutionRole",
+    "task-execution-role"       : "ecsTaskExecutionRole",
+    "container-name"            : "RESAFIGSMSWeb",
+    "container-port-mapping"    : "80:80",
+    "container-environment-variables" : "\"ASPNETCORE_ENVIRONMENT\"=\"Production\"",
+    "skip-image-push"                 : false,
+    "cluster-service"                 : "RESAFIGSMSWeb",
+    "desired-count"                   : 1,
+    "deployment-minimum-healthy-percent" : 50,
+    "deployment-maximum-percent"         : 200,
+    "vstoolkit-deployment-mode"          : "DeployService"
+}
